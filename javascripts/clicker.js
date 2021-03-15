@@ -10,7 +10,7 @@
 const clickerButton = document.querySelector('#click');
 const moneyTracker = document.querySelector('#money');
 const mpsTracker = document.querySelector('#mps');
-const followerTracker = document.querySelector('#followers');
+const followerTracker = document.querySelector('#potatisar');
 const upgradeList = document.querySelector('#upgradelist')
 const msgbox = document.querySelector('#msgbox')
 
@@ -21,7 +21,7 @@ const msgbox = document.querySelector('#msgbox')
  * värden, utan då använder vi let.
  * Läs mer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
  */
-let money = 0;
+let money = 10;
 let moneyPerClick = 1;
 let moneyPerSecond = 0;
 let last = 0;
@@ -91,17 +91,17 @@ window.addEventListener('load', (event) => {
  */
 upgrades = [
   {
-    name: 'Arg gubbe',
+    name: 'Shrek?',
     cost: 10,
     amount: 1
   },
   {
-    name: 'Internettroll',
+    name: 'Wife',
     cost: 100,
     amount: 10
   },
   {
-    name: 'Twitterbot',
+    name: 'Jesus',
     cost: 1000,
     amount: 100
   }
@@ -132,8 +132,8 @@ function createCard(upgrade) {
   header.classList.add('title');
   const cost = document.createElement('p');
 
-  header.textContent = upgrade.name + ', +' + upgrade.amount + ' likes per sekund.';
-  cost.textContent = 'Köp för ' + upgrade.cost + ' likes';
+  header.textContent = upgrade.name + ', +' + upgrade.amount + ' Potatisar per sekund.';
+  cost.textContent = 'Köp för ' + upgrade.cost + ' Potatisar';
 
   card.addEventListener('click', (e) => {
     if (money >= upgrade.cost) {
@@ -141,9 +141,9 @@ function createCard(upgrade) {
       moneyPerClick++;
       money -= upgrade.cost;
       upgrade.cost *= 1.5;
-      cost.textContent = 'Köp för ' + upgrade.cost + ' likes';
+      cost.textContent = 'Köp för ' + upgrade.cost + ' Potatisar';
       moneyPerSecond += upgrade.amount;
-      message('Grattis du har en ny följare!', 'success');
+      message('Grattis du har en ny potatis plockare!', 'success');
     } else {
       message('Du har inte råd.', 'warning');
     }
