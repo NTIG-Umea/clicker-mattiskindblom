@@ -20,7 +20,7 @@ img {
 }
 
 body {
-  background-color: rgb(158, 145, 145);
+  background-color: rgb(230, 218, 218);
 }
 
 footer {
@@ -67,7 +67,7 @@ footer {
 .card {
   display: flex;
   justify-content: space-between;
-  cursor: pointer;
+  cursor: no-drop;
   border: 1px solid black;
   margin: .5rem 0;
   padding: .5rem;

@@ -8,9 +8,9 @@
 * Viktigt: queryselector ger oss ett html element eller flera om det finns.
 */
 const clickerButton = document.querySelector('#click');
-const moneyTracker = document.querySelector('#money');
-const mpsTracker = document.querySelector('#mps');
-const followerTracker = document.querySelector('#potatisar');
+const PotatisTracker = document.querySelector('#Potatisar');
+const ppsTracker = document.querySelector('#pps');
+const PotatisarTracker = document.querySelector('#Potatisar');
 const upgradeList = document.querySelector('#upgradelist')
 const msgbox = document.querySelector('#msgbox')
 
@@ -21,9 +21,9 @@ const msgbox = document.querySelector('#msgbox')
  * värden, utan då använder vi let.
  * Läs mer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
  */
-let money = 10;
-let moneyPerClick = 1;
-let moneyPerSecond = 0;
+let Potatisar = 0;
+let PotatisarPerClick = 1;
+let PotatisarPerSecond = 0;
 let last = 0;
 
 /* Med ett valt element, som knappen i detta fall så kan vi skapa listeners
@@ -38,7 +38,7 @@ let last = 0;
  */
 clickerButton.addEventListener('click', () => {
   // vid click öka score med 1
-  money += moneyPerClick;
+  Potatisar += PotatisarPerClick;
   // console.log(clicker.score);
 }, false);
 
@@ -52,12 +52,12 @@ clickerButton.addEventListener('click', () => {
  * Sist i funktionen så kallar den på sig själv igen för att fortsätta uppdatera.
  */
 function step(timestamp) {
-  moneyTracker.textContent = Math.round(money);
-  mpsTracker.textContent = moneyPerSecond;
-  followerTracker.textContent = moneyPerClick;
+  PotatisTracker.textContent = Math.round(Potatisar);
+  ppsTracker.textContent = PotatisarPerSecond;
+  PotatisarTracker.textContent = PotatisarPerClick;
 
   if (timestamp >= last + 1000) {
-    money += moneyPerSecond;
+    Potatisar += PotatisarPerSecond;
     last = timestamp;
   }
   window.requestAnimationFrame(step);
@@ -136,13 +136,13 @@ function createCard(upgrade) {
   cost.textContent = 'Köp för ' + upgrade.cost + ' Potatisar';
 
   card.addEventListener('click', (e) => {
-    if (money >= upgrade.cost) {
-      followers++;
-      moneyPerClick++;
-      money -= upgrade.cost;
-      upgrade.cost *= 1.5;
+    if (Potatisar >= upgrade.cost) {
+      Potatisar++;
+      PotatisarPerClick++;
+      Potatisar -= upgrade.cost;
+      upgrade.cost *= 2;
       cost.textContent = 'Köp för ' + upgrade.cost + ' Potatisar';
-      moneyPerSecond += upgrade.amount;
+      PotatisarPerSecond += upgrade.amount;
       message('Grattis du har en ny potatis plockare!', 'success');
     } else {
       message('Du har inte råd.', 'warning');
