@@ -71,7 +71,7 @@ p2 {
 .card {
   display: flex;
   justify-content: space-between;
-  cursor: no-drop;
+  cursor:help;
   border: 1px solid black;
   margin: .5rem 0;
   padding: .5rem;

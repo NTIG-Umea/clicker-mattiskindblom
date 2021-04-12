@@ -24,7 +24,7 @@ const msgbox = document.querySelector('#msgbox')
 let Potatisar = 0;
 let PotatisarPerClick = 1;
 let PotatisarPerSecond = 0;
-let last = 0;
+let last = 1;
 
 /* Med ett valt element, som knappen i detta fall så kan vi skapa listeners
  * med addEventListener så kan vi lyssna på ett specifikt event på ett html-element
@@ -92,7 +92,7 @@ window.addEventListener('load', (event) => {
 upgrades = [
   {
     name: 'Shrek?',
-    cost: 10,
+    cost: -10,
     amount: 1
   },
   {
@@ -140,7 +140,7 @@ function createCard(upgrade) {
       Potatisar++;
       PotatisarPerClick++;
       Potatisar -= upgrade.cost;
-      upgrade.cost *= 2;
+      upgrade.cost *= 1.9;
       cost.textContent = 'Köp för ' + upgrade.cost + ' Potatisar';
       PotatisarPerSecond += upgrade.amount;
       message('Grattis du har en ny potatis plockare!', 'success');
