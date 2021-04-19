@@ -92,18 +92,18 @@ window.addEventListener('load', (event) => {
 upgrades = [
   {
     name: 'Shrek?',
-    cost: -10,
+    cost: 10,
     amount: 1
   },
   {
     name: 'Wife',
     cost: 100,
-    amount: 10
+    amount: 5
   },
   {
     name: 'Jesus',
     cost: 1000,
-    amount: 100
+    amount: 75
   }
 ]
 
@@ -140,7 +140,7 @@ function createCard(upgrade) {
       Potatisar++;
       PotatisarPerClick++;
       Potatisar -= upgrade.cost;
-      upgrade.cost *= 1.9;
+      upgrade.cost *= 2;
       cost.textContent = 'Köp för ' + upgrade.cost + ' Potatisar';
       PotatisarPerSecond += upgrade.amount;
       message('Grattis du har en ny potatis plockare!', 'success');
